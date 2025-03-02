@@ -8,16 +8,16 @@
                 <div class="relative group">
                     <a class="mx-2 hover:bg-blue-500 rounded-xl p-1" href="#">Drivers</a>
                     <!-- Dropdown menu -->
-                    <div class="absolute left-0 hidden mt-2 space-y-2 bg-white text-black rounded-xl shadow-lg w-48 group-hover:block">
-                        <a href="#" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Records</a>
+                    <div class="absolute left-0 hidden mt-0 space-y-2 bg-white text-black rounded-xl shadow-lg w-48 group-hover:block "">
+                        <a href=" #" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Records</a>
                         <a href="#" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Reports</a>
                     </div>
                 </div>
                 <div class="relative group">
                     <a class="mx-2 hover:bg-blue-500 rounded-xl p-1" href="#">Vehicles</a>
                     <!-- Dropdown menu -->
-                    <div class="absolute left-0 hidden mt-2 space-y-2 bg-white text-black rounded-xl shadow-lg w-48 group-hover:block">
-                        <a href="#" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Records</a>
+                    <div class="absolute left-0 hidden mt-0 space-y-2 bg-white text-black rounded-xl shadow-lg w-48 group-hover:block">
+                        <a href=" #" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Records</a>
                         <a href="#" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Reports</a>
                     </div>
                 </div>
