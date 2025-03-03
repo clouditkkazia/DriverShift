@@ -9,7 +9,8 @@
                     <a class="mx-2 hover:bg-blue-500 rounded-xl p-1" href="#">Drivers</a>
                     <!-- Dropdown menu -->
                     <div class="absolute left-0 hidden mt-0 space-y-2 bg-white text-black rounded-xl shadow-lg w-48 group-hover:block "">
-                        <a href=" #" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Records</a>
+                        <a href=" #" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">View Drv(s)</a>
+                        <a href=" #" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Add Drv(s)</a>
                         <a href="#" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Reports</a>
                     </div>
                 </div>
@@ -17,7 +18,8 @@
                     <a class="mx-2 hover:bg-blue-500 rounded-xl p-1" href="#">Vehicles</a>
                     <!-- Dropdown menu -->
                     <div class="absolute left-0 hidden mt-0 space-y-2 bg-white text-black rounded-xl shadow-lg w-48 group-hover:block">
-                        <a href=" #" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Records</a>
+                        <a href=" #" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">View Veh(s)</a>
+                        <a href=" #" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Add Veh(s)</a>
                         <a href="#" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Reports</a>
                     </div>
                 </div>
