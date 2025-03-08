@@ -1,3 +1,3 @@
 <?php
 
-echo 'driver lists';
+loadView('drvlistings/drvrecords');

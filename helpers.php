@@ -21,6 +21,7 @@ function basePath($path = '')
 
 function loadView($name)
 {
+    //inspect($name);
     require basePath("views/{$name}.view.php");
 }
 
