@@ -1,24 +1,19 @@
 <?php
 require '../helpers.php';
+require '../Router.php';
 
-//loadView('home');
+//router object No.1
+$route = new Router();
 
-//routers 
-// key = /list/drivers => value 'controllers/drivers/drvlist.php',
-$routes = [
-    '/' => 'controllers/home.php',
-    '/list/drivers' => 'controllers/drivers/drvlist.php',
-    '/add/drivers' => 'controllers/drivers/drvcreate.php',
-    '/list/vehicles' => 'controllers/vehicles/vehiclelist.php',
-    '/add/vehicles' => 'controllers/vehicles/vehcreate.php',
-    '404' => 'controllers/error/404.php'
-];
+//putting this here so it can access the instance and add to the routes object from this file. No.2
+require '../allmyroutes.php';
 
+
+//ok i want to send these
 $uri = $_SERVER['REQUEST_URI'];
-// inspect($uri);
+$method = $_SERVER['REQUEST_METHOD'];
 
-if (array_key_exists($uri, $routes)) {
-    require(basePath($routes[$uri]));
-} else {
-    require basePath($routes['404']);
-}
+//just pass whatever u choose
+//the object is then sent to the loadroute and that loads the page, NOT HERE!!
+$route->loadRoute($uri, $method);
+//inspect($route);

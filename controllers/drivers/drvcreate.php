@@ -1,3 +1,3 @@
 <?php
 
-echo 'creating driver record!!';
+loadView('drvlistings/drvcreate');
