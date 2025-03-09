@@ -1,6 +1,7 @@
 <?php
 require '../helpers.php';
 require '../Router.php';
+require '../Database.php';
 
 //router object No.1
 $route = new Router();
