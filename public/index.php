@@ -11,7 +11,9 @@ require '../allmyroutes.php';
 
 
 //ok i want to send these
-$uri = $_SERVER['REQUEST_URI'];
+//parse url means just get the path to the url ignore the ?sysid=9493043
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+//inspectAndDie($uri);
 $method = $_SERVER['REQUEST_METHOD'];
 
 //just pass whatever u choose
