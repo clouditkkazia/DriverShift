@@ -23,13 +23,13 @@ function loadView($name, $data = [])
 {
     //inspect($name);
     extract($data); //extract the variable drvrecords which = array of drivers or the drvshowrecord
-    require basePath("views/{$name}.view.php");
+    require basePath("App/views/{$name}.view.php");
 }
 
 
 function loadPartials($name)
 {
-    $viewPartial = basePath("views/partials/{$name}.php");
+    $viewPartial = basePath("App/views/partials/{$name}.php");
     if (file_exists($viewPartial)) {
         require $viewPartial;
     } else {

@@ -29,6 +29,9 @@
             <a href="/list/drivers" class="bg-blue-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 mb-5">
                 Back
             </a>
+            <a href="" class="bg-blue-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 mb-5">
+                Delete
+            </a>
         </div>
         <label class="text-lg font-semibold text-blue-700">Driver Ref</label>
         <input
