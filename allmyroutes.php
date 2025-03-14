@@ -1,6 +1,6 @@
 <?php
 
-//set all the routes 
+//set all the routes with the keyvalue pair "/" ---> controllers/home.php
 $route->get('/', 'controllers/home.php');
 $route->get('/list/drivers', 'controllers/drivers/drvlist.php');
 $route->get('/edit/drivers/{$SysId}', 'controllers/drivers/drvedit.php');

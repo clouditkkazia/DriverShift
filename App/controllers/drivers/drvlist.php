@@ -5,7 +5,7 @@ use Framework\Database;
 $config = require basePath('config/db.php');
 $db = new Database($config);
 
-$drvrecords = $db->query('select * from drvrecords limit 100')->fetchAll();
+$drvrecords = $db->query('select * from drvrecords')->fetchAll();
 //inspect($drvrecords);
 
 loadView('drvlistings/drvrecords', ['drvrecords' => $drvrecords]);

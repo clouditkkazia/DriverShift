@@ -28,6 +28,7 @@ require '../helpers.php';
 use Framework\Router;
 
 //router object No.1
+//create an instance of the router object
 $route = new Router();
 
 //putting this here so it can access the instance and add to the routes object from this file. No.2
@@ -38,6 +39,7 @@ require '../allmyroutes.php';
 //parse url means just get the path to the url ignore the ?sysid=9493043
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 //inspectAndDie($uri);
+//what method was called get or post or delete or put
 $method = $_SERVER['REQUEST_METHOD'];
 
 //just pass whatever u choose

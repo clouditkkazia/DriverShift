@@ -2,7 +2,8 @@
 
 namespace Framework;
 
-use PDO;
+//since pdo and others dont exist in the framework folder u have to define or use PDO...
+use PDO, PDOException, Exception;
 
 class Database
 {
