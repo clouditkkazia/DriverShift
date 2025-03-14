@@ -25,7 +25,7 @@ require '../helpers.php';
 //     }
 // });
 
-
+use Framework\Router;
 
 //router object No.1
 $route = new Router();
