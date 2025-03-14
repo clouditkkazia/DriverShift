@@ -35,10 +35,7 @@ loadPartials('header');
                     <th class="border border-gray-300 px-4 py-2">REF</th>
                     <th class="border border-gray-300 px-4 py-2">SYSID</th>
                     <th class="border border-gray-300 px-4 py-2">NAME</th>
-                    <th class="border border-gray-300 px-4 py-2">EMAIL</th>
-                    <th class="border border-gray-300 px-4 py-2">LICNO</th>
-                    <th class="border border-gray-300 px-4 py-2">LICEXP</th>
-                    <th class="border border-gray-300 px-4 py-2">CRMEx</th>
+                    <th class="border border-gray-300 px-4 py-2">SELECT</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,10 +44,6 @@ loadPartials('header');
                         <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->DrvRef ?></td>
                         <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->SystemId ?></td>
                         <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->FirstName . '' . $drvrecord->LastName ?></td>
-                        <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->Email ?></td>
-                        <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->LicNo ?></td>
-                        <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->LicExp ?></td>
-                        <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->SchBExpCrm ?></td>
                         <td class="border border-gray-300 px-4 py-2 w-auto">
                             <a class="bg-black text-white px-2 border 1 hover:bg-red-600 mb-1" href="/edit/drivers/SysId=<?= $drvrecord->SystemId ?>">Edit</a><br>
                             <a class="bg-black text-white px-2 border 1 hover:bg-red-600 mb-1" href="">Delete</a><br>

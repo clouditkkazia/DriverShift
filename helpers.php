@@ -22,7 +22,7 @@ function basePath($path = '')
 function loadView($name, $data = [])
 {
     //inspect($name);
-    extract($data); //extract the variable drvrecords which = array of drivers
+    extract($data); //extract the variable drvrecords which = array of drivers or the drvshowrecord
     require basePath("views/{$name}.view.php");
 }
 
