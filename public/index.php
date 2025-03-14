@@ -1,7 +1,31 @@
 <?php
+
+/**replaced the spl_autoload_register
+ * created composer.json added entries for the app and framework
+ * composer install
+ */
+require __DIR__ . '/../vendor/autoload.php';
 require '../helpers.php';
-require basePath('Framework/Router.php');
-require basepath('Framework/Database.php');
+
+
+// require basePath('Framework/Router.php');
+// require basepath('Framework/Database.php');
+
+/**
+ * spl_autoload_register() is a built-in PHP function that registers a callback 
+ * function for autoloading classes. It helps automatically load class definitions
+ *  when they are instantiated, without requiring explicit require or include statements.
+ * important- FILE NAME SHOULD BE THE SAME AS THE CLASS NAME ie Database.php
+ */
+//we can use psr4 standard
+// spl_autoload_register(function ($class) {
+//     $path = basePath('Framework/' . $class . '.php');
+//     if (file_exists($path)) {
+//         require $path;
+//     }
+// });
+
+
 
 //router object No.1
 $route = new Router();
