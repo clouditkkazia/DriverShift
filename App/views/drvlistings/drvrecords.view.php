@@ -1,22 +1,41 @@
 <?php
 loadPartials('header');
-loadPartials('footer');
-//$countRecords = count($drvrecords);
-//i want 50 per page, so how many pages
-//$noOfPages = $countRecords / 10;
-//inspect($noOfPages);
+
+// Calculate the number of pages
+// $countRecords = count($drvrecords);
+// $recordsPerPage = 50;
+// $noOfPages = ceil($countRecords / $recordsPerPage); // Use ceil() to round up
+
+// Default to showing all records
+$results = $drvrecords;
+
+// if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['searchRec'])) {
+//     $results = search($_GET['searchRec'], $drvrecords);
+// }
+
+// // Search function to filter records
+// function search($search, $data = []): array
+// {
+//     return array_filter($data, function ($record) use ($search) {
+//         // Ensure 'DrvRef' exists in the record before checking
+//         return isset($record["DrvRef"]) && stripos($record["DrvRef"], $search) !== false;
+//     });
+// }
 
 
 
 ?>
+
 <section>
     <div class="flex flex-row m-auto w-full max-w-[90%] items-center gap-2 m-20">
         <a href="/" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Home Page</a>
         <a href="/" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Add</a>
     </div>
     <div class="flex items-center justify-center p-4">
-        <input type="text" class="border-b-2 border-blue-700 focus:outline-none p-2 bg-transparent mr-2">
-        <a href="/" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Search</a>
+        <form method="GET">
+            <input type="text" class="border-b-2 border-blue-700 focus:outline-none p-2 bg-transparent mr-2" name="searchRec">
+            <button type="submit" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Search</button>
+        </form>
     </div>
     <div class="flex min-h-screen items-center justify-center bg-gray-300 p-4">
         <div class="flex w-full max-w-[90%] flex-col rounded-2xl border-2 border-blue-900 bg-white p-10 text-black shadow-2xl shadow-black md:max-w-[70%]">
@@ -35,7 +54,7 @@ loadPartials('footer');
             <!-- Data Grid (Each row has its own actions) -->
             <div class="mt-4 grid grid-cols-3 gap-4 text-center">
                 <!-- Rows -->
-                <?php foreach ($drvrecords as $drvrecord): ?>
+                <?php foreach ($results as $drvrecord): ?>
                     <div class="p-1 bg-gray-100 rounded-xl border-1 m-5"><?= $drvrecord->DrvRef ?></div>
                     <div class=" p-1 bg-yellow-100 text-black border-1 rounded-xl p-2"><?= $drvrecord->FirstName . ' ' . $drvrecord->LastName ?></div>
                     <div class="flex justify-center space-x-1">
