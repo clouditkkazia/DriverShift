@@ -1,5 +1,6 @@
 <?php
 loadPartials('header');
+loadPartials('footer');
 //$countRecords = count($drvrecords);
 //i want 50 per page, so how many pages
 //$noOfPages = $countRecords / 10;
@@ -9,12 +10,18 @@ loadPartials('header');
 
 ?>
 <section>
-    <div class="container bg-yellow-400 text-2xl mx-auto p-4 border rounded-xl shadow-xl flex justify-center items-center">
-        <p>Driver List</p>
+    <div class="flex flex-row m-auto w-full max-w-[90%] items-center gap-2 m-20">
+        <a href="/" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Home Page</a>
+        <a href="/" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Add</a>
+    </div>
+    <div class="flex items-center justify-center p-4">
+        <input type="text" class="border-b-2 border-blue-700 focus:outline-none p-2 bg-transparent mr-2">
+        <a href="/" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Search</a>
     </div>
     <div class="flex min-h-screen items-center justify-center bg-gray-300 p-4">
-        <div class="flex w-full max-w-[90%] flex-col rounded-2xl border-2 border-blue-900 bg-white p-10 text-black shadow-2xl shadow-black md:max-w-[50%]">
+        <div class="flex w-full max-w-[90%] flex-col rounded-2xl border-2 border-blue-900 bg-white p-10 text-black shadow-2xl shadow-black md:max-w-[70%]">
             <!-- Header Grid -->
+            <div class="-m-9 mb-4 h-10 rounded-xl bg-blue-600 p-1.5 text-center font-semibold text-yellow-100"><label for="name">Driver Records</label></div>
             <div class="grid grid-cols-3 gap-4 rounded-xl p-3 text-center font-bold">
                 <div class="text-amber-700">Driver Ref</div>
                 <div class="text-red-800">Name</div>
