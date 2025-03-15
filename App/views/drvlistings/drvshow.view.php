@@ -15,67 +15,69 @@
 
 <section>
 
-    <div class="container bg-yellow-300 text-2xl mx-auto p-4 border rounded-xl shadow-xl flex justify-center items-center">
+    <div class="container bg-yellow-400 text-2xl mx-auto p-4 border rounded-xl shadow-xl flex justify-center items-center">
         <p>Driver Detail</p>
     </div>
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="w-full max-w-[90%] md:max-w-[50%] flex flex-col rounded-2xl border-2 border-blue-900 bg-white p-10 text-black shadow-2xl shadow-black">
+            <div class="-m-9 mb-4 h-10 rounded-xl bg-blue-600 p-1.5 text-center font-semibold text-yellow-100"><label for="name"><?= $drvshowrecord->FirstName . ' ' . $drvshowrecord->LastName ?></label></div>
+            <div class="">
+                <form class="mx-auto grid max-w-lg grid-cols-2 gap-6">
+                    <div class="flex flex-col">
+                        <label class="font-semibold text-amber-700 text-center">Driver Ref</label>
+                        <input type="text"
+                            class="rounded-md border p-2 font-medium bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
+                            value="<?= $drvshowrecord->DrvRef ?>"
+                            readonly />
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-semibold text-amber-700  text-center">SystemID</label>
+                        <input type="text"
+                            class="rounded-md border p-2 font-medium bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
+                            value="<?= $drvshowrecord->SystemId ?>"
+                            readonly />
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-semibold text-amber-700 text-center">Email</label>
+                        <input type="email"
+                            class="rounded-md border p-2 font-small bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
+                            value="<?= $drvshowrecord->Email ?>"
+                            readonly />
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-semibold text-amber-700">License No</label>
+                        <input type="email"
+                            class="rounded-md border p-2 font-small bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
+                            value="<?= $drvshowrecord->LicNo ?>"
+                            readonly />
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-semibold text-amber-700">License Exp</label>
+                        <input type="text"
+                            class="rounded-md border p-2 font-small bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
+                            value="<?= $drvshowrecord->LicExp ?>"
+                            readonly />
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="font-semibold text-amber-700">Crm Exp</label>
+                        <input type="text"
+                            class="rounded-md border p-2 font-small bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
+                            value="<?= $drvshowrecord->SchBExpCrm ?>"
+                            readonly />
+                    </div>
+                </form>
 
-
-
-    <div class=" container flex flex-col space-x-2 w-[350px] mt-2 items-center text-center mx-auto bg-white rounded-xl shadow-2xl p-4">
-        <div class="flex flex-row space-x-2 w-auto mt-2">
-            <a href="#" class="bg-blue-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 mb-5">
-                Edit
-            </a>
-            <a href="/list/drivers" class="bg-blue-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 mb-5">
-                Back
-            </a>
-            <a href="" class="bg-blue-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300 mb-5">
-                Delete
-            </a>
+                <div class="mt-5 flex flex-col">
+                    <div class="mx-auto grid-cols-4 gap-6">
+                        <a href="/list/drivers" class="rounded-2xl bg-blue-600 px-5 py-1 text-zinc-50 hover:bg-red-500">Back</a>
+                        <a href="/list/drivers" class="rounded-2xl bg-blue-600 px-5 py-1 text-zinc-50 hover:bg-red-500">Edit</a>
+                        <a href="/list/drivers" class="rounded-2xl bg-blue-600 px-5 py-1 text-zinc-50 hover:bg-red-500">Delete</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <label class="text-lg font-semibold text-blue-700">Driver Ref</label>
-        <input
-            type="text"
-            value="<?= $drvshowrecord->DrvRef ?>"
-            readonly
-            class="bg-yellow-100 text-blue-900 border border-blue-500 rounded-lg p-2 outline-none cursor-not-allowed">
-
-        <label class="text-lg font-semibold text-blue-700">SystemID</label>
-        <input
-            type="text"
-            value="<?= $drvshowrecord->SystemId ?>"
-            readonly
-            class="bg-yellow-100 text-blue-900 border border-blue-500 rounded-lg p-2 outline-none cursor-not-allowed">
-
-        <label class="text-lg font-semibold text-blue-700">Name</label>
-        <input
-            type="text"
-            value="<?= $drvshowrecord->FirstName . '' . $drvshowrecord->LastName ?>"
-            readonly
-            class="bg-yellow-100 text-blue-900 border border-blue-500 rounded-lg p-2 outline-none cursor-not-allowed">
-        <label class="text-lg font-semibold text-blue-700">Email</label>
-        <input
-            type="text"
-            value="<?= $drvshowrecord->Email ?>"
-            readonly
-            class="bg-yellow-100 text-blue-900 border border-blue-500 rounded-lg p-2 outline-none cursor-not-allowed">
-        <label class="text-lg font-semibold text-blue-700">LicenseNo</label>
-        <input
-            type="text"
-            value="<?= $drvshowrecord->LicNo ?>"
-            readonly
-            class="bg-yellow-100 text-blue-900 border border-blue-500 rounded-lg p-2 outline-none cursor-not-allowed">
-        <label class="text-lg font-semibold text-blue-700">LicenseExp</label>
-        <input
-            type="text"
-            value="<?= $drvshowrecord->LicExp ?>"
-            readonly
-            class="bg-yellow-100 text-blue-900 border border-blue-500 rounded-lg p-2 outline-none cursor-not-allowed">
-        <label class="text-lg font-semibold text-blue-700">CrmExp</label>
-        <input
-            type="text"
-            value="<?= $drvshowrecord->SchBExpCrm ?>"
-            readonly
-            class="bg-yellow-100 text-blue-900 border border-blue-500 rounded-lg p-2 outline-none cursor-not-allowed">
     </div>
+
+
+
 </section>
