@@ -8,55 +8,42 @@ loadPartials('header');
 
 
 ?>
-
-
 <section>
-
-    <div class="container bg-yellow-300 text-2xl mx-auto p-4 border rounded-xl shadow-xl flex justify-center items-center">
-        <p>Driver Records</p>
+    <div class="container bg-yellow-400 text-2xl mx-auto p-4 border rounded-xl shadow-xl flex justify-center items-center">
+        <p>Driver List</p>
     </div>
-    <form class="container flex-center my-4 mx-auto w-1/2 rounded-lg bg-gray-900 p-4 text-red p-10 shadow-lg p-2 m-1 justify-center" method="POST" action="#">
-        <div class="mb-4 flex items-center p-2">
-            <input type="text" class="w-full rounded-lg border border-gray-400 p-1" placeholder="Search ..." />
-            <button type="submit" name="search" class="ml-2 rounded-lg bg-blue-500 p-2 text-white hover:bg-red-600">Search</button>
-        </div>
-    </form>
-    <hr>
-    <div class="container flex p-1 w-auto mx-auto my-auto">
-        <a href=" /" class="bg-blue-500 p-4 border 1 rounded-2xl">HOME</a>
-    </div>
-
-
-    <div class="container flex p-16 w-auto mx-auto mt-15">
-
-        <table class="border-separate border border-gray-400 w-full text-left shadow-lg">
-            <thead>
-                <tr class="bg-gray-200 text-gray-700">
-                    <th class="border border-gray-300 px-4 py-2">REF</th>
-                    <th class="border border-gray-300 px-4 py-2">SYSID</th>
-                    <th class="border border-gray-300 px-4 py-2">NAME</th>
-                    <th class="border border-gray-300 px-4 py-2">SELECT</th>
-                </tr>
-            </thead>
-            <tbody>
+    <div class="flex min-h-screen items-center justify-center bg-gray-300 p-4">
+        <div class="flex w-full max-w-[90%] flex-col rounded-2xl border-2 border-blue-900 bg-white p-10 text-black shadow-2xl shadow-black md:max-w-[50%]">
+            <!-- Header Grid -->
+            <div class="grid grid-cols-3 gap-4 rounded-xl p-3 text-center font-bold">
+                <div class="text-amber-700">Driver Ref</div>
+                <div class="text-red-800">Name</div>
+                <div class="text-violet-950">Actions</div>
+            </div>
+            <div class="mt-2 grid grid-cols-3 gap-4">
+                <hr class="grid-col-1" />
+                <hr class="grid-col-2" />
+                <hr class="grid-col-3" />
+            </div>
+            <!-- Data Grid (Each row has its own actions) -->
+            <div class="mt-4 grid grid-cols-3 gap-4 text-center">
+                <!-- Rows -->
                 <?php foreach ($drvrecords as $drvrecord): ?>
-                    <tr class="bg-white hover:bg-gray-100">
-                        <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->DrvRef ?></td>
-                        <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->SystemId ?></td>
-                        <td class="border border-gray-300 px-4 py-2"><?= $drvrecord->FirstName . '' . $drvrecord->LastName ?></td>
-                        <td class="border border-gray-300 px-4 py-2 w-auto">
-                            <a class="bg-black text-white px-2 border 1 hover:bg-red-600 mb-1" href="/edit/drivers/SysId=<?= $drvrecord->SystemId ?>">Edit</a><br>
-                            <a class="bg-black text-white px-2 border 1 hover:bg-red-600 mb-1" href="">Delete</a><br>
-                            <a class="bg-black text-white px-2 border 1 hover:bg-red-600 mb-1" href="">Trips</a><br>
-                            <a class="bg-black text-white px-2 border 1 hover:bg-red-600 mb-1" href="/viewdrv/drivers/?sysid=<?= $drvrecord->SystemId ?>">View</a>
-                        </td>
-
-
-                    </tr>
+                    <div class="p-1 bg-gray-100 rounded-xl border-1 m-5"><?= $drvrecord->DrvRef ?></div>
+                    <div class=" p-1 bg-yellow-100 text-black border-1 rounded-xl p-2"><?= $drvrecord->FirstName . ' ' . $drvrecord->LastName ?></div>
+                    <div class="flex justify-center space-x-1">
+                        <div>
+                            <a href="/viewdrv/drivers/?sysid=<?= $drvrecord->SystemId ?>" class="bg-green-500 text-white hover:text-black px-2 rounded-xl font-semibold p-1">View</a>
+                            <a href="#" class="bg-yellow-300 text-white hover:text-purple-500 px-2 py-1 rounded-xl font-semibold p-1">TripHist</a>
+                        </div>
+                    </div>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
 
+
+            </div>
+        </div>
     </div>
+
+
 
 </section>

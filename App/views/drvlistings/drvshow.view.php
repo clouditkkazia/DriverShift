@@ -45,21 +45,21 @@
                             readonly />
                     </div>
                     <div class="flex flex-col">
-                        <label class="font-semibold text-amber-700">License No</label>
+                        <label class="font-semibold text-amber-700 text-center">License No</label>
                         <input type="email"
                             class="rounded-md border p-2 font-small bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
                             value="<?= $drvshowrecord->LicNo ?>"
                             readonly />
                     </div>
                     <div class="flex flex-col">
-                        <label class="font-semibold text-amber-700">License Exp</label>
+                        <label class="font-semibold text-amber-700 text-center">License Exp</label>
                         <input type="text"
                             class="rounded-md border p-2 font-small bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
                             value="<?= $drvshowrecord->LicExp ?>"
                             readonly />
                     </div>
                     <div class="flex flex-col">
-                        <label class="font-semibold text-amber-700">Crm Exp</label>
+                        <label class="font-semibold text-amber-700 text-center">Crm Exp</label>
                         <input type="text"
                             class="rounded-md border p-2 font-small bg-gray-200 text-gray-700 focus:outline-none cursor-not-allowed text-center"
                             value="<?= $drvshowrecord->SchBExpCrm ?>"
