@@ -20,15 +20,4 @@ class HomeController
     {
         loadView('home');
     }
-
-    public function drvlist()
-    {
-
-        $drvrecords = $this->db->query('select * from drvrecords')->fetchAll();
-        //inspect($drvrecords);
-
-        //load the view and the send the results with it ..LOADVIEW has the extract results
-        //t o pass to view page which loads all the drivers
-        loadView('drvlistings/drvrecords', ['drvrecords' => $drvrecords]);
-    }
 }

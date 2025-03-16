@@ -103,15 +103,21 @@ class Router
                 //require basePath('App/' . $route['controller']);
                 //so this changes to 
                 //extract contrller and controllermethod
+                //right here it determines the path to the HomeController file and class
+                //we setup Class HomeController
                 $controller = 'App\\Controllers\\' . $route['controller'];
-                // inspect($controller);
+                //inspect($controller);
+                //this one then calls the METHOD in the CLASS HomeController
                 $controllerMethod = $route['controllerMethod'];
-                // inspect($controllerMethod);
-                //creaete an instance of controller and call the method
+                //inspect($controllerMethod);
+                //creaete an instance of controller and call the CLASS
+                //$controllerInstance = new App\Controllers\HomeController();
                 $controllerInstance = new $controller();
                 // echo 'instance of object=>' . $controller . '<br>';
                 // inspect($controllerInstance);
+                //$controllerInstance->index();
                 $controllerInstance->$controllerMethod();
+                //then in the indexmethod i have loadview(whatever php file)
                 // inspectAndDie($controllerMethod);
                 return;
             }

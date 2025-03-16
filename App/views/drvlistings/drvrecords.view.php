@@ -29,7 +29,7 @@ $results = $drvrecords;
 <section>
     <div class="flex flex-row m-auto w-full max-w-[90%] items-center gap-2 m-20">
         <a href="/" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Home Page</a>
-        <a href="/" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Add</a>
+        <a href="/add/drivers" class="bg-yellow-300 text-white hover:text-blue-500 px-2 py-1 rounded-xl font-semibold p-1">Add</a>
     </div>
     <div class="flex items-center justify-center p-4">
         <form method="GET">
