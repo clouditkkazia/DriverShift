@@ -43,6 +43,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
 //just pass whatever u choose
-//the object is then sent to the loadroute and that loads the page, NOT HERE!!
+//the object is then sent to the loadroute and that loads the page, App/views/home.view.php
 $route->loadRoute($uri, $method);
 //inspect($route);

@@ -18,6 +18,8 @@ class HomeController
 
     public function index()
     {
+        //views/home.view.php. thats what this is loading below
+        //App/views/home.view.php
         loadView('home');
     }
 }
