@@ -14,7 +14,7 @@ function basePath($path = '')
 
 /**
  * load a view
- * 
+ * so basically replaces the header("Location: driverlistings.php");
  * @param string string $name
  * @return void
  */
@@ -33,6 +33,7 @@ function loadPartials($name)
     if (file_exists($viewPartial)) {
         require $viewPartial;
     } else {
+
         echo "Partial '{$name} not found!!'";
     }
 }

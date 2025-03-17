@@ -2,10 +2,14 @@
 
 namespace Framework;
 
+use App\controllers\ErrorController;
+
 class Router
 {
 
     protected $routes = [];
+
+
 
     public function registerRoute($method, $uri, $action)
     {
@@ -122,5 +126,6 @@ class Router
                 return;
             }
         }
+        ErrorController::notFound();
     }
 }

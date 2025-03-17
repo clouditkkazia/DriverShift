@@ -47,7 +47,7 @@ class DriverController
 
     public function drvcreate()
     {
-        echo 'Driver Add record';
+        //echo 'Driver Add record';
         //goes to teh viewfolder and opens the require php file drvcreate
         loadView('drvlistings/drvcreate');
     }
