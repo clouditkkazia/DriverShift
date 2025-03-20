@@ -30,14 +30,14 @@ class DriverController
 
     public function drvshow()
     {
-        $sysid = $_GET['sysid'] ?? '';
-        //inspect($sysid);
         if (isset($_GET['sysid'])) {
             $params = [
-                'sysid' => $sysid
+                'sysid' => $_GET['sysid']
             ];
 
             $drvshowrecord = $this->db->query('select * from drvrecords where SystemId=:sysid', $params)->fetch();
+        } else {
+            loadView('error');
         }
         //inspect($drvshowrecord);
         //goes to teh viewfolder and opens the require php file drvshow and send the 

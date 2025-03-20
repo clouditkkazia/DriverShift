@@ -39,6 +39,10 @@ class Database
      * @throws PDOException
      */
 
+    //here as we have the $params, if there are params then bind them and use for 
+    //prepare statements to return the query wiht the results. if nothing then the plain 
+    //query e.g select * from driverlistings OR where id=1 and X=y etc.
+    //$params['Karim']..btw comes from controller
     public function query($query, $params = [])
     {
         try {

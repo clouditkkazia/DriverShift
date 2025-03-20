@@ -40,6 +40,8 @@ require '../allmyroutes.php';
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 //inspectAndDie($uri);
 //what method was called get or post or delete or put
+//$_SERVER is a global variable can be
+//used anywhere in the modules.
 $method = $_SERVER['REQUEST_METHOD'];
 
 //just pass whatever u choose
