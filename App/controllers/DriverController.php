@@ -3,6 +3,7 @@
 namespace App\controllers;
 
 use Framework\Database;
+use Framework\Validation;
 
 basePath('helpers.php');
 
@@ -56,9 +57,10 @@ class DriverController
 
     public function storedrv()
     {
+        //Clean the dirty data i.e check to make sure no html tags are in teh fields
         $allowedFields = [
             'drvref',
-            'sysid',
+            //'sysid',
             'firstname',
             'lastname',
             'email',
@@ -67,8 +69,35 @@ class DriverController
             'crmexp'
         ];
 
-
         $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
         $newListingData = array_map('sanitize', $newListingData);
+        //inspect($newListingData);
+
+        //validating data -is it suposed to be as is or somevalue is missing etc.
+
+        $requiredFields = [
+            'drvref',
+            'firstname',
+            'lastname',
+            'email',
+            'licno',
+            'licexp',
+            'crmexp'
+        ];
+
+        $errors = [];
+        foreach ($requiredFields as $field) {
+            if (empty($newListingData[$field]) || !Validation::string($newListingData[$field])) {
+                $errors[$field] = ucfirst($field) . ' is required!!!';
+            };
+        }
+
+        if (!empty($errors)) {
+            //reload views
+            loadview('drvlistings/drvcreate', ['errors' => $errors, 'myvalues' => $newListingData]);
+        } else {
+            echo 'success';
+        };
+        //inspectAndDie($errors);
     }
 }

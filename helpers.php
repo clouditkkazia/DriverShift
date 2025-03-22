@@ -22,7 +22,9 @@ function basePath($path = '')
 function loadView($name, $data = [])
 {
     //inspect($name);
-    extract($data); //extract the variable drvrecords which = array of drivers or the drvshowrecord
+    //extract the variable drvrecords which = array of drivers or the drvshowrecord
+    //or when inserting data and i am passing $data [errirs,myvalues etc]->gota go to the page
+    extract($data);
     require basePath("App/views/{$name}.view.php");
 }
 
