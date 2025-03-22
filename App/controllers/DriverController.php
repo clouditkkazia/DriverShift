@@ -4,6 +4,7 @@ namespace App\controllers;
 
 use Framework\Database;
 
+basePath('helpers.php');
 
 class DriverController
 {
@@ -47,8 +48,27 @@ class DriverController
 
     public function drvcreate()
     {
-        //echo 'Driver Add record';
-        //goes to teh viewfolder and opens the require php file drvcreate
-        loadView('drvlistings/drvcreate');
+        loadview('drvlistings/drvcreate');
+    }
+    /**
+     * @return void
+     */
+
+    public function storedrv()
+    {
+        $allowedFields = [
+            'drvref',
+            'sysid',
+            'firstname',
+            'lastname',
+            'email',
+            'licno',
+            'licexp',
+            'crmexp'
+        ];
+
+
+        $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
+        $newListingData = array_map('sanitize', $newListingData);
     }
 }

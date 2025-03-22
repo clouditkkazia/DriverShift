@@ -67,3 +67,15 @@ function inspectAndDie($value)
     echo '<pre>';
     die();
 }
+
+/**
+ * Mar 22nd added sanitize data
+ * sanitize the data for saving
+ * @param string $dirty
+ */
+
+
+function sanitize($dirty)
+{
+    return trim(filter_var(trim($dirty), FILTER_SANITIZE_SPECIAL_CHARS));
+}

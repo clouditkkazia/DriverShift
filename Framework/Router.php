@@ -18,7 +18,7 @@ class Router
         //$controller = 'HomeController' and $controllerMethod='index'
 
         list($controller, $controllerMethod) = explode('@', $action);
-
+        //inspect($controllerMethod);
         $this->routes[] = [
             'method' => $method,
             'uri' => $uri,
@@ -66,6 +66,7 @@ class Router
 
     public function post($uri, $controller)
     {
+        //inspect($controller);
         $this->registerRoute('POST', $uri, $controller);
         //$this->routes[] = ['method' => 'POST', 'uri' => $uri, 'controller' => $controller];
         //return;
