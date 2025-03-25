@@ -1,7 +1,7 @@
 <?php
 
 namespace Framework;
-
+//this class checks the values of the fields e.g not empty or email is good etc
 class Validation
 {
     /***
@@ -20,6 +20,20 @@ class Validation
             $value = trim($value);
             $length = strlen($value);
             return $length >= $min && $length <= $max;
+        }
+        return false;
+    }
+
+    /**
+     * check for int in sysid
+     * @param int $value
+     * @return bool
+     */
+
+    public static function hasIisIntOnly($value)
+    {
+        if (ctype_digit($value) > 11111) {
+            return ctype_digit($value);
         }
         return false;
     }

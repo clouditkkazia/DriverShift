@@ -45,14 +45,17 @@ class Database
     //$params['Karim']..btw comes from controller
     public function query($query, $params = [])
     {
+
+
+        //inspect($params);
         try {
             $sth = $this->conn->prepare($query);
             //bind the params
-
+            //nspect($query);
             foreach ($params as $param => $value) {
                 $sth->bindValue(':' . $param, $value);
             }
-
+            //inspectandDie($sth);
             $sth->execute();
             return $sth;
         } catch (PDOException $e) {

@@ -20,32 +20,37 @@
         <form class="flex flex-col gap-4" action="/save/driver" method="POST">
             <div class="flex flex-col">
                 <label for="driverref" class="font-semibold">DriverRef</label>
-                <input type="text" id="driverref" name="drvref" class="p-2 border rounded-lg"
+                <input type="text" id="driverref" name="DrvRef" class="p-2 border rounded-lg"
                     value="<?php echo $myvalues['drvref'] ?? ''; ?>">
             </div>
             <div class="flex flex-col">
+                <label for="sysid" class="font-semibold">SystemID</label>
+                <input type="text" id="sysid" name="SystemId" class="p-2 border rounded-lg"
+                    value="<?php echo $myvalues['sysid'] ?? ''; ?>">
+            </div>
+            <div class="flex flex-col">
                 <label for="firstname" class="font-semibold">First Name</label>
-                <input type="text" id="firstname" name="firstname" class="p-2 border rounded-lg" value="<?php echo $myvalues['firstname'] ?? ''; ?>">
+                <input type="text" id="firstname" name="FirstName" class="p-2 border rounded-lg" value="<?php echo $myvalues['firstname'] ?? ''; ?>">
             </div>
             <div class="flex flex-col">
                 <label for="lastname" class="font-semibold">Last Name</label>
-                <input type="text" id="lastname" name="lastname" class="p-2 border rounded-lg" value="<?php echo $myvalues['lastname'] ?? ''; ?>">
+                <input type="text" id="lastname" name="LastName" class="p-2 border rounded-lg" value="<?php echo $myvalues['lastname'] ?? ''; ?>">
             </div>
             <div class="flex flex-col">
                 <label for="email" class="font-semibold">Email</label>
-                <input type="text" id="email" name="email" class="p-2 border rounded-lg" value="<?php echo $myvalues['email'] ?? ''; ?>">
+                <input type="text" id="email" name="Email" class="p-2 border rounded-lg" value="<?php echo $myvalues['email'] ?? ''; ?>">
             </div>
             <div class="flex flex-col">
                 <label for="licno" class="font-semibold">License Number</label>
-                <input type="text" id="licno" name="licno" class="p-2 border rounded-lg" value="<?php echo $myvalues['licno'] ?? ''; ?>">
+                <input type="text" id="licno" name="LicNo" class="p-2 border rounded-lg" value="<?php echo $myvalues['licno'] ?? ''; ?>">
             </div>
             <div class="flex flex-col">
                 <label for="licexp" class="font-semibold">LicenseExp</label>
-                <input type="date" id="licexp" name="licexp" class="p-2 border rounded-lg" value="<?php echo $myvalues['licexp'] ?? ''; ?>">
+                <input type="date" id="licexp" name="LicExp" class="p-2 border rounded-lg" value="<?php echo $myvalues['licexp'] ?? ''; ?>">
             </div>
             <div class="flex flex-col">
                 <label for="crmexp" class="font-semibold">Crm Exp</label>
-                <input type="date" id="crmexp" name="crmexp" class="p-2 border rounded-lg" value="<?php echo $myvalues['crmexp'] ?? ''; ?>">
+                <input type="date" id="crmexp" name="SchBExpCrm" class="p-2 border rounded-lg" value="<?php echo $myvalues['crmexp'] ?? ''; ?>">
             </div>
             <button type="submit" class="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
                 ADD

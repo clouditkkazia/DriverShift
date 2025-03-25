@@ -9,11 +9,11 @@
                 <div class="relative group">
                     <a class="mx-2 hover:bg-blue-500 rounded-xl p-1" href="/list/drivers">Drivers</a>
                     <!-- Dropdown menu -->
-                    <!-- <div class="absolute left-0 hidden mt-0 space-y-2 bg-white text-black rounded-xl shadow-lg w-48 group-hover:block ">
-                        <a href="/list/drivers" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">View Drv(s)</a>
-                        <a href="/add/drivers" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Add Drv(s)</a>
+                    <div class="absolute left-0 hidden mt-0 space-y-2 bg-white text-black rounded-xl shadow-lg w-48 group-hover:block ">
+                        <!-- <a href="/list/drivers" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">View Drv(s)</a> -->
+                        <a href="/add/driver" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Add Drv(s)</a>
                         <a href="" class="block px-4 py-2 hover:bg-blue-500 rounded-xl">Reports</a>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="relative group">
                     <a class="mx-2 hover:bg-blue-500 rounded-xl p-1" href="#">Vehicles</a>

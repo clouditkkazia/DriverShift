@@ -59,36 +59,45 @@ class DriverController
     {
         //Clean the dirty data i.e check to make sure no html tags are in teh fields
         $allowedFields = [
-            'drvref',
-            //'sysid',
-            'firstname',
-            'lastname',
-            'email',
-            'licno',
-            'licexp',
-            'crmexp'
+            'DrvRef',
+            'SystemId',
+            'FirstName',
+            'LastName',
+            'Email',
+            'LicNo',
+            'LicExp',
+            'SchBExpCrm'
         ];
 
+        //inspectAndDie($_POST);
         $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
+
+        //callback function sanitize which is in helpers.php , which i am 
+        //sending the $newListingData as parameter.
         $newListingData = array_map('sanitize', $newListingData);
         //inspect($newListingData);
 
         //validating data -is it suposed to be as is or somevalue is missing etc.
 
         $requiredFields = [
-            'drvref',
-            'firstname',
-            'lastname',
-            'email',
-            'licno',
-            'licexp',
-            'crmexp'
+            'DrvRef',
+            'SystemId',
+            'FirstName',
+            'LastName',
+            'Email',
+            'LicNo',
+            'LicExp',
+            'SchBExpCrm'
         ];
 
         $errors = [];
         foreach ($requiredFields as $field) {
-            if (empty($newListingData[$field]) || !Validation::string($newListingData[$field])) {
-                $errors[$field] = ucfirst($field) . ' is required!!!';
+            if (
+                empty($newListingData[$field]) ||
+                !Validation::string($newListingData[$field])
+            ) {
+                $errors[$field] = $field . ' is required!!!';
+                //$errors[$field] = ucfirst($field) . ' is required!!!';
             };
         }
 
@@ -96,8 +105,41 @@ class DriverController
             //reload views
             loadview('drvlistings/drvcreate', ['errors' => $errors, 'myvalues' => $newListingData]);
         } else {
-            echo 'success';
+            // echo 'success' ;
+            //if i have reachede here then to save to DB. 
+
+            $fields = [];
+            //loop through the newlisting and save to fields[]
+            foreach ($newListingData as $field => $value) {
+                $fields[] = $field;
+            }
+            //implde thisie convert from array to string
+            //see results
+            $fields = implode(', ', $fields);
+            //inspectAndDie($fields);
+            //result from array - implode the array to get this below
+            //string(71) "DrvRef, SystemId, FirstName, LastName, Email, LicNo, LicExp, SchBExpCrm"
+
+            $values = [];
+            foreach ($newListingData as $field => $value) {
+                //convert emtpy string to null;
+                if ($value == '') {
+                    $newListingData[$field] = null;
+                }
+                $values[] = ':' . $field;
+            }
+            //see results below
+            $values = implode(', ', $values);
+            //inspectAndDie($values);
+            //string(79) ":DrvRef, :SystemId, :FirstName, :LastName, :Email, :LicNo, :LicExp, :SchBExpCrm"
+
+            //inspectAndDie($fields);
         };
-        //inspectAndDie($errors);
+        //inspect($newListingData);
+        $query = "insert into drvrecords ({$fields}) values({$values})";
+        //inspectAndDie($newListingData);
+        $this->db->query($query, $newListingData);
+        // inspectAndDie($query);
+        //redirect('/');
     }
 }

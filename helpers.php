@@ -79,5 +79,19 @@ function inspectAndDie($value)
 
 function sanitize($dirty)
 {
+    //cleans up the fields with entries like <h1>ajkkkk</h1>, so scripting
+    //is not run incase someone tries a stunt like that
     return trim(filter_var(trim($dirty), FILTER_SANITIZE_SPECIAL_CHARS));
+}
+
+/**
+ * redirect to url
+ * @param string $url
+ * @return void
+ */
+
+function redirect($url)
+{
+    header("Location : {$url}");
+    exit;
 }
