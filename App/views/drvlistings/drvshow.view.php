@@ -70,8 +70,8 @@
                 <div class="mt-5 flex flex-col">
                     <div class="mx-auto grid-cols-4 gap-6">
                         <a href="/list/drivers" class="rounded-2xl bg-blue-600 px-5 py-1 text-zinc-50 hover:bg-red-500">Back</a>
-                        <a href="/list/drivers" class="rounded-2xl bg-blue-600 px-5 py-1 text-zinc-50 hover:bg-red-500">Edit</a>
-                        <a href="/list/drivers" class="rounded-2xl bg-blue-600 px-5 py-1 text-zinc-50 hover:bg-red-500">Delete</a>
+                        <a href="/" class="rounded-2xl bg-blue-600 px-5 py-1 text-zinc-50 hover:bg-red-500">Edit</a>
+                        <a href="/del/driver/?sysid=<?= $drvshowrecord->SystemId ?>" class="rounded-2xl bg-blue-600 px-5 py-1 text-zinc-50 hover:bg-red-500">Delete</a>
                     </div>
                 </div>
             </div>

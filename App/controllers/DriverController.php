@@ -54,6 +54,27 @@ class DriverController
     /**
      * @return void
      */
+    public function destoryDrv()
+    {
+        //echo 'del driver set';
+        // inspectAndDie($_GET['sysid']);
+
+        if (isset($_GET['sysid'])) {
+            $params = [
+                'sysid' => $_GET['sysid']
+            ];
+
+            // $this->db->query('delete from drvrecords where SystemId=:sysid', $params);
+            loadview('drvlistings/success', ['message' => "Deleted Record " . $_GET['sysid']]);
+        } else {
+            //inspectAndDie($_GET['sysid']);
+            loadView('error');
+        }
+        //inspect($drvshowrecord);
+        //goes to teh viewfolder and opens the require php file drvshow and send the 
+        //data with it : check the loadview function 
+
+    }
 
     public function storedrv()
     {

@@ -8,12 +8,15 @@ $route->get('/', 'HomeController@index');
 $route->get('/list/drivers', 'DriverController@drvlist');
 $route->get('/viewdrv/drivers/', 'DriverController@drvshow');
 $route->get('/add/driver', 'DriverController@drvcreate');
-//hook for updating or insert new driver from icabbi
-$route->post('/upsert/drvs/', 'WebHookController@upsertDrvRecord');
 /**Mar 22nd - post the new driver to database */
 /**notice the post,falls here but now the method is post */
 $route->post('/save/driver', 'DriverController@storedrv');
-$route->get('/upsert/drvs/', 'WebHookController@upsertDrvRecord');
+//delete the driver i have to get the sysid from the driver listings yo!!
+//Mar 28th 2025
+$route->get('/del/driver/', 'DriverController@destoryDrv');
+
+//hook for updating or insert new driver from icabbi Mar27th 2025
+$route->post('/upsert/drvs/', 'WebHookController@upsertDrvRecord');
 /************************************************************** */
 
 //set all the routes with the keyvalue pair "/" ---> controllers/home.php

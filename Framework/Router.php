@@ -26,8 +26,8 @@ class Router
             'controllerMethod' => $controllerMethod
         ];
 
-        // inspect($uri);
-        // inspect($action);
+        //inspect($uri);
+        //inspect($action);
         //inspect($controllerMethod);
     }
 
@@ -93,6 +93,7 @@ class Router
 
     public function delete($uri, $controller)
     {
+        //inspectAndDie($uri);
         $this->registerRoute('DELETE', $uri, $controller);
         // $this->routes[] = ['method' => 'DELETE', 'uri' => $uri, 'controller' => $controller];
         // return;
@@ -123,7 +124,7 @@ class Router
                 //$controllerInstance->index();
                 $controllerInstance->$controllerMethod();
                 //then in the indexmethod i have loadview(whatever php file)
-                // inspectAndDie($controllerMethod);
+                //inspectAndDie($controllerMethod);
                 return;
             }
         }

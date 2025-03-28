@@ -38,11 +38,12 @@ require '../allmyroutes.php';
 //ok i want to send these
 //parse url means just get the path to the url ignore the ?sysid=9493043
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-//inspectAndDie($uri);
+//inspect($uri);
 //what method was called get or post or delete or put
 //$_SERVER is a global variable can be
 //used anywhere in the modules.
 $method = $_SERVER['REQUEST_METHOD'];
+//inspect($method);
 
 //just pass whatever u choose
 //the object is then sent to the loadroute and that loads the page, App/views/home.view.php

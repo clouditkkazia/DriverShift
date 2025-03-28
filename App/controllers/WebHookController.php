@@ -36,7 +36,7 @@ class WebHookController
         //error_log(print_r($data, true)); // This will log the array to the PHP error log
         $query = "CALL icabbi.InsertOrUpdateDrvRecord(:p_SystemId, :p_DrvRef, 
         :p_FirstName, :p_LastName, :p_Email, :p_LicNo, :p_LicExp, :p_SchBExpCrm)";
-        // Ensure the date is properly formatted
+        // Ensure the date is properly formatted, from epochunix to Y-m-d h:m:s
         if (isset($data['LicExp'])) {
             $datetime = new \DateTime();
             $datetime->setTimestamp($data['LicExp']); // Set epoch timestamp
@@ -63,7 +63,6 @@ class WebHookController
         //here i will open the db for saving data.
         $this->db->query($query, $paramToSend);
         http_response_code(200);
-
-        echo json_encode(["success" => true]);
+        //echo json_encode(["success" => true]);
     }
 }
