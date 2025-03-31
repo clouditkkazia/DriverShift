@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /**replaced the spl_autoload_register
  * created composer.json added entries for the app and framework

@@ -39,7 +39,8 @@ class DriverController
 
             $drvshowrecord = $this->db->query('select * from drvrecords where SystemId=:sysid', $params)->fetch();
         } else {
-            loadView('error');
+            $_SESSION['success_message'] = 'Record Not Found.Make Sure you have SysID synced with icabbi for this record';
+            //loadView('error');
         }
         //inspect($drvshowrecord);
         //goes to teh viewfolder and opens the require php file drvshow and send the 
@@ -63,13 +64,16 @@ class DriverController
             $params = [
                 'sysid' => $_GET['sysid']
             ];
-
-            // $this->db->query('delete from drvrecords where SystemId=:sysid', $params);
-            loadview('drvlistings/success', ['message' => "Deleted Record " . $_GET['sysid']]);
+            $_SESSION['success_message'] = 'Record Marked as Deleted';
+            //$this->db->query('update drvrecords set DrvRef='X_'+DrvRef where SystemId=:sysid', $params);
+            loadview('drvlistings/success');
         } else {
             //inspectAndDie($_GET['sysid']);
             loadView('error');
         }
+
+        //set flash message
+
         //inspect($drvshowrecord);
         //goes to teh viewfolder and opens the require php file drvshow and send the 
         //data with it : check the loadview function 

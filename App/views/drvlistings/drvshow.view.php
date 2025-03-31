@@ -18,6 +18,7 @@
     <div class="container bg-yellow-400 text-2xl mx-auto p-4 border rounded-xl shadow-xl flex justify-center items-center">
         <p>Driver Detail</p>
     </div>
+
     <div class="flex items-center justify-center min-h-screen p-4">
         <div class="w-full max-w-[90%] md:max-w-[50%] flex flex-col rounded-2xl border-2 border-blue-900 bg-white p-10 text-black shadow-2xl shadow-black">
             <div class="-m-9 mb-4 h-10 rounded-xl bg-blue-600 p-1.5 text-center font-semibold text-yellow-100"><label for="name"><?= $drvshowrecord->FirstName . ' ' . $drvshowrecord->LastName ?></label></div>
