@@ -7,6 +7,7 @@ $route->get('/', 'HomeController@index');
 /** DRIVER FUNCTIONS */
 $route->get('/list/drivers', 'DriverController@drvlist');
 $route->get('/viewdrv/drivers/', 'DriverController@drvshow');
+$route->get('/editdrv/drivers/', 'DriverController@drvedit');
 $route->get('/add/driver', 'DriverController@drvcreate');
 /**Mar 22nd - post the new driver to database */
 /**notice the post,falls here but now the method is post */

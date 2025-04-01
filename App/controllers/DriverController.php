@@ -48,6 +48,24 @@ class DriverController
         loadView('drvlistings/drvshow', ['drvshowrecord' => $drvshowrecord]);
     }
 
+    public function drvedit()
+    {
+        if (isset($_GET['sysid'])) {
+            $params = [
+                'sysid' => $_GET['sysid']
+            ];
+
+            $drvshowrecord = $this->db->query('select * from drvrecords where SystemId=:sysid', $params)->fetch();
+        } else {
+            $_SESSION['success_message'] = 'Record Not Found.Make Sure you have SysID synced with icabbi for this record';
+            //loadView('error');
+        }
+        //inspect($drvshowrecord);
+        //goes to teh viewfolder and opens the require php file drvshow and send the 
+        //data with it : check the loadview function 
+        loadView('drvlistings/drvedit', ['drvshowrecord' => $drvshowrecord]);
+    }
+
     public function drvcreate()
     {
         loadview('drvlistings/drvcreate');
