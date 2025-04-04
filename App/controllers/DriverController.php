@@ -114,7 +114,7 @@ class DriverController
 
         //inspectAndDie($_POST);
         $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
-
+        inspectAndDie($newListingData);
         //callback function sanitize which is in helpers.php , which i am 
         //sending the $newListingData as parameter.
         $newListingData = array_map('sanitize', $newListingData);
@@ -146,7 +146,11 @@ class DriverController
 
         if (!empty($errors)) {
             //reload views
-            loadview('drvlistings/drvcreate', ['errors' => $errors, 'myvalues' => $newListingData]);
+            if ($_SERVER['REQUEST_METHOD'] === "POST" && !$_POST['updaterec'] === '_update') {
+                loadview('drvlistings/drvcreate', ['errors' => $errors, 'myvalues' => $newListingData]);
+            } else {
+                loadview('drvlistings/drvedit', ['errors' => $errors, 'myvalues' => $newListingData]);
+            }
         } else {
             // echo 'success' ;
             //if i have reachede here then to save to DB. 
@@ -179,9 +183,20 @@ class DriverController
             //inspectAndDie($fields);
         };
         //inspect($newListingData);
-        $query = "insert into drvrecords ({$fields}) values({$values})";
+
+        if ($_POST['_method'] === 'update') {
+            $query = "insert into drvrecords ({$fields}) values({$values})";
+            $this->db->query($query, $newListingData);
+        } else {
+            $query = "CALL icabbi.InsertOrUpdateDrvRecord(values({$values})";
+            inspectAndDie($query);
+            $this->db->query($query);
+        }
+
         //inspectAndDie($newListingData);
-        $this->db->query($query, $newListingData);
+        // $query = "CALL icabbi.InsertOrUpdateDrvRecord(:p_SystemId, :p_DrvRef, 
+        // :p_FirstName, :p_LastName, :p_Email, :p_LicNo, :p_LicExp, :p_SchBExpCrm)";
+
         // inspectAndDie($query);
         //redirect('/');
     }
