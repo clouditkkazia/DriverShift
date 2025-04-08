@@ -32,4 +32,13 @@ class ErrorController
             'message' => $message
         ]);
     }
+
+    public static function dberror($message = "An Error has occured in the dB")
+    {
+        http_response_code(500);
+        loadView('error', [
+            'status' => '500',
+            'message' => $message
+        ]);
+    }
 }

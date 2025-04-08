@@ -35,6 +35,9 @@
              <div class="">
                  <form action="/save/driver" method="POST" class="mx-auto grid max-w-lg grid-cols-2 gap-6">
                      <input type="hidden" value="_update" name="updaterec">
+                     <input type="hidden" name="FirstName" value=<?= $drvshowrecord->FirstName ?>>
+                     <input type="hidden" name="LastName" value=<?= $drvshowrecord->LastName ?>>
+                     <input type="hidden" name="SystemId" value=<?= $drvshowrecord->SystemId ?>>
 
                      <div class="flex flex-col">
                          <label class="font-semibold text-amber-700 text-center">Driver Ref</label>
@@ -44,7 +47,7 @@
                      </div>
                      <!-- <div class="flex flex-col">
                          <label class="font-semibold text-amber-700  text-center">SystemID</label>
-                         <input type="text"
+                         <input type="text" name="SystemId"
                              class="rounded-md border p-2 font-medium bg-white-200 text-gray-700 focus:outline-none  text-center"
                              value="<?= $drvshowrecord->SystemId ?>" readonly />
                      </div> -->

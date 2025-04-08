@@ -2,6 +2,7 @@
 
 namespace App\controllers;
 
+use Exception;
 use Framework\Database;
 use Framework\Validation;
 
@@ -114,7 +115,7 @@ class DriverController
 
         //inspectAndDie($_POST);
         $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
-        inspectAndDie($newListingData);
+        //inspectAndDie($newListingData);
         //callback function sanitize which is in helpers.php , which i am 
         //sending the $newListingData as parameter.
         $newListingData = array_map('sanitize', $newListingData);
@@ -146,10 +147,12 @@ class DriverController
 
         if (!empty($errors)) {
             //reload views
-            if ($_SERVER['REQUEST_METHOD'] === "POST" && !$_POST['updaterec'] === '_update') {
+            if ($_SERVER['REQUEST_METHOD'] === "POST" && !$_POST['_update'] === 'updaterec') {
                 loadview('drvlistings/drvcreate', ['errors' => $errors, 'myvalues' => $newListingData]);
             } else {
-                loadview('drvlistings/drvedit', ['errors' => $errors, 'myvalues' => $newListingData]);
+                $drvshowrecord = $newListingData;
+                //inspectAndDie($drvshowrecord);
+                loadview('drvlistings/drvedit', ['errors' => $errors, 'myvalues' => $drvshowrecord]);
             }
         } else {
             // echo 'success' ;
@@ -182,22 +185,34 @@ class DriverController
 
             //inspectAndDie($fields);
         };
-        //inspect($newListingData);
 
-        if ($_POST['_method'] === 'update') {
-            $query = "insert into drvrecords ({$fields}) values({$values})";
-            $this->db->query($query, $newListingData);
-        } else {
-            $query = "CALL icabbi.InsertOrUpdateDrvRecord(values({$values})";
-            inspectAndDie($query);
-            $this->db->query($query);
+        // echo '<pre>';
+        // print_r($newListingData);
+        // echo '</pre>';
+        try {
+            $query = "CALL icabbi.InsertOrUpdateDrvRecord(:p_SystemId, :p_DrvRef, 
+                :p_FirstName, :p_LastName, :p_Email, :p_LicNo, :p_LicExp, :p_SchBExpCrm)";
+            $paramToSend = [
+                'p_SystemId' => $newListingData['SystemId'],
+                'p_DrvRef' => $newListingData['DrvRef'],
+                'p_FirstName' => $newListingData['FirstName'],
+                'p_LastName' => $newListingData['LastName'],
+                'p_Email' => $newListingData['Email'],
+                'p_LicNo' => $newListingData['LicNo'],
+                'p_LicExp' => $newListingData['LicExp'],
+                'p_SchBExpCrm' => $newListingData['SchBExpCrm']
+            ];
+            $this->db->query($query, $paramToSend);
+            loadView('drvlistings/success');
+        } catch (Exception $e) {
+            ErrorController::dberror($e);
         }
-
-        //inspectAndDie($newListingData);
-        // $query = "CALL icabbi.InsertOrUpdateDrvRecord(:p_SystemId, :p_DrvRef, 
-        // :p_FirstName, :p_LastName, :p_Email, :p_LicNo, :p_LicExp, :p_SchBExpCrm)";
-
-        // inspectAndDie($query);
-        //redirect('/');
     }
+
+    //inspectAndDie($newListingData);
+    // $query = "CALL icabbi.InsertOrUpdateDrvRecord(:p_SystemId, :p_DrvRef, 
+    // :p_FirstName, :p_LastName, :p_Email, :p_LicNo, :p_LicExp, :p_SchBExpCrm)";
+
+    // inspectAndDie($query);
+    //redirect('/');
 }

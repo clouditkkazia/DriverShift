@@ -18,6 +18,7 @@
     <?php endif; ?>
     <div class="container mx-auto mt-10 p-6 border rounded-xl shadow-xl max-w-lg bg-white">
         <form class="flex flex-col gap-4" action="/save/driver" method="POST">
+            <input type="hidden" name="updaterec" value="_insert">
             <div class="flex flex-col">
                 <label for="driverref" class="font-semibold">DriverRef</label>
                 <input type="text" id="driverref" name="DrvRef" class="p-2 border rounded-lg"
