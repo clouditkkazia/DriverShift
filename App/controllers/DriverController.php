@@ -147,7 +147,7 @@ class DriverController
 
         if (!empty($errors)) {
             //reload views
-            if ($_SERVER['REQUEST_METHOD'] === "POST" && !$_POST['_update'] === 'updaterec') {
+            if ($_SERVER['REQUEST_METHOD'] === "POST" && $_POST['updaterec'] !== '_update') {
                 loadview('drvlistings/drvcreate', ['errors' => $errors, 'myvalues' => $newListingData]);
             } else {
                 $drvshowrecord = $newListingData;
