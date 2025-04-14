@@ -13,6 +13,7 @@ use Framework\Database;
 
 class WebHookController
 {
+    //here i will create a new instance of the database class.
     protected $db;
 
     public function __construct()
