@@ -37,9 +37,12 @@
             <!-- <button class="rounded-3xl border-2 bg-black px-4 py-1 text-white transition hover:bg-blue-700 mr-2">
                 profile
             </button> -->
-            <button class="rounded-3xl border-2 bg-black px-4 py-1 text-white transition hover:bg-blue-700">
+            <a href="/auth/login" class="rounded-3xl border-2 bg-black px-4 py-1 text-white transition hover:bg-blue-700">
                 Login
-            </button>
+            </a>
+            <a href="/auth/register" class="rounded-3xl border-2 bg-black px-4 py-1 text-white transition hover:bg-blue-700">
+                Register
+            </a>
         </div>
     </div>
 </div>

@@ -20,6 +20,11 @@ $route->get('/del/driver/', 'DriverController@destoryDrv');
 $route->post('/upsert/drvs/', 'WebHookController@upsertDrvRecord');
 /************************************************************** */
 
+/*****user controller */
+
+$route->get('/auth/register', 'UserController@create');
+$route->get('/auth/login', 'UserController@login');
+
 //set all the routes with the keyvalue pair "/" ---> controllers/home.php
 //$route->get('/', 'controllers/home.php');
 //$route->get('/list/drivers', 'controllers/drivers/drvlist.php');
